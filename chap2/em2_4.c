@@ -3,7 +3,9 @@
 //
 
 #include <stdio.h>
+#include <string.h>
 // typedef 定义别名：为unsigned char类型的指针定义别名byte_pointer
+// mac貌似用的是小端法
 typedef unsigned char *byte_pointer;
 
 void show_bytes(byte_pointer start, size_t len) {
@@ -30,14 +32,18 @@ void show_pointer(void *x) {
 
 int main() {
     // 指针确实占8个字节，char类型的指针会以1字节单位挪动
-    printf("sizeof byte_pointer: %d\n", sizeof(byte_pointer));
-    //
-    int val = 5;
-    float fval = (float) val;
-    int *pval = &val;
-    show_int(val);
-    show_float(fval);
-    show_pointer(pval);
+//    printf("sizeof byte_pointer: %d\n", sizeof(byte_pointer));
+//    int val;
+//    printf("请输入需要打印的val:");
+//    scanf("%d", &val);
+//    printf("\n");
+//    float fval = (float) val;
+//    int *pval = &val;
+//    show_int(val);
+//    show_float(fval);
+//    show_pointer(pval);
+    const char *s = "abcdef";
+    show_bytes((byte_pointer)s, strlen(s));
 }
 
 
